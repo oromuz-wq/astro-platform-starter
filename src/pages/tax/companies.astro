@@ -1,0 +1,26 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CompanyManager from '../../components/tax/CompanyManager.tsx';
+
+export const prerender = false;
+---
+
+<Layout title="Gestión de Empresas · Tracker Tributario">
+    <div class="py-10 space-y-2">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+            <h1 class="text-3xl font-bold sm:text-4xl">Gestión de Empresas</h1>
+            <a
+                href="/tax"
+                class="btn"
+                style="--btn-py: 0.5rem; --btn-px: 1rem; font-size: 0.875rem;"
+            >
+                ← Volver al Dashboard
+            </a>
+        </div>
+        <p class="text-gray-400 text-sm">
+            Agrega empresas, asigna obligaciones tributarias y revisa su estado
+        </p>
+    </div>
+
+    <CompanyManager client:load />
+</Layout>
