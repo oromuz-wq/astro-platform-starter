@@ -219,7 +219,7 @@ tr:active td{background:#E3F2FD}
           <div class="hint">Produción auto: catalogo-vpfe.dian.gov.co — Habilitación auto: catalogo-vpfe-hab.dian.gov.co</div>
         </div>
         <div class="field"><label>Token JWT Bearer</label>
-          <textarea id="dianToken" rows="3" placeholder="eyJhbGciOi..." oninput="dianGuardarToken()"></textarea>
+          <textarea id="dianTokenField" rows="3" placeholder="eyJhbGciOi..." oninput="dianGuardarToken()"></textarea>
           <div class="hint">Obténgalo en el portal DIAN → Facturación Electrónica → Token</div>
         </div>
         <button class="btn btn-primary" onclick="dianValidar()">
@@ -524,8 +524,8 @@ function dianBaseUrl(){
     : 'https://catalogo-vpfe.dian.gov.co/api';
 }
 
-function dianToken(){
-  return (document.getElementById('dianToken')?.value||'').trim()
+function getDianToken(){
+  return (document.getElementById('dianTokenField')?.value||'').trim()
       || empresa()?.dianToken||'';
 }
 
@@ -537,7 +537,7 @@ function dianGuardarUrl(){
 
 function dianGuardarToken(){
   const e=empresa(); if(!e) return;
-  e.dianToken=document.getElementById('dianToken').value.trim();
+  e.dianToken=document.getElementById('dianTokenField').value.trim();
   saveEmpresas();
 }
 
@@ -547,7 +547,7 @@ function renderDIANPanel(){
   document.getElementById('dianPanel').style.display=e?'block':'none';
   if(!e) return;
   document.getElementById('dianUrl').value=e.dianApiUrl||'';
-  document.getElementById('dianToken').value=e.dianToken||'';
+  document.getElementById('dianTokenField').value=e.dianToken||'';
   document.getElementById('dianCorsAlert').style.display='none';
   // Default dates
   if(!document.getElementById('dianFechaDesde').value){
@@ -558,7 +558,7 @@ function renderDIANPanel(){
 }
 
 async function dianValidar(){
-  const token=dianToken();
+  const token=getDianToken();
   if(!token){ alert('Ingrese el token DIAN primero'); return; }
   const base=dianBaseUrl();
   const statusEl=document.getElementById('dianStatus');
@@ -595,7 +595,7 @@ async function dianValidar(){
 }
 
 async function dianDescargar(){
-  const token=dianToken();
+  const token=getDianToken();
   if(!token){ alert('Ingrese el token DIAN primero'); return; }
   const base=dianBaseUrl();
   const desde=document.getElementById('dianFechaDesde').value;
@@ -606,14 +606,17 @@ async function dianDescargar(){
   const resEl=document.getElementById('dianDescResult');
   progEl.style.display='block'; barEl.style.width='10%'; resEl.innerHTML='';
   const headers={Authorization:'Bearer '+token,'Content-Type':'application/json'};
-  const params=new URLSearchParams({...(desde&&{fechaDesde:desde}),(hasta&&{fechaHasta:hasta}),(nit&&{nit})});
+  const p=new URLSearchParams();
+  if(desde) p.set('fechaDesde',desde);
+  if(hasta) p.set('fechaHasta',hasta);
+  if(nit) p.set('nit',nit);
   const endpoints=[
-    `/GetDocumentList?${params}`,
-    `/comprobantes?${params}`,
-    `/invoices?${params}`,
-    `/facturas?${params}`,
-    `/documents?${params}`,
-    `/GetComprobantes?${params}`
+    '/GetDocumentList?'+p,
+    '/comprobantes?'+p,
+    '/invoices?'+p,
+    '/facturas?'+p,
+    '/documents?'+p,
+    '/GetComprobantes?'+p
   ];
   let facturas=null, lastErr='';
   for(let i=0;i<endpoints.length;i++){
