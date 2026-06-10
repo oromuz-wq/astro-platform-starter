@@ -18,30 +18,20 @@
 }
 html,body{height:100%;overflow:hidden}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column}
-
-/* ── HEADER ── */
 .app-header{background:var(--primary);color:#fff;padding:14px 16px 10px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.25)}
 .app-logo{font-size:22px;font-weight:800;letter-spacing:-.5px}
 .app-logo span{color:#FFD54F}
 .app-subtitle{font-size:11px;opacity:.8;letter-spacing:.3px}
 .empresa-chip{margin-left:auto;background:rgba(255,255,255,.18);border-radius:20px;padding:4px 10px;font-size:12px;font-weight:600;cursor:pointer;max-width:130px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-
-/* ── SCROLL AREA ── */
 .app-body{flex:1;overflow-y:auto;padding:12px 12px 80px;-webkit-overflow-scrolling:touch}
-
-/* ── BOTTOM NAV ── */
 .bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;border-top:1px solid var(--border);z-index:100;box-shadow:0 -2px 10px rgba(0,0,0,.08)}
 .nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;padding:8px 2px 10px;gap:3px;background:none;border:none;cursor:pointer;color:var(--muted);font-size:10px;font-weight:600;transition:color .2s}
 .nav-btn.active{color:var(--primary)}
 .nav-btn svg{width:22px;height:22px}
 .nav-btn.active svg{stroke:var(--primary)}
-
-/* ── CARDS ── */
 .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px;margin-bottom:14px}
 .card-title{font-size:14px;font-weight:700;color:var(--primary);margin-bottom:12px;display:flex;align-items:center;gap:6px}
 .card-title svg{width:18px;height:18px}
-
-/* ── FORM ── */
 .field{margin-bottom:12px}
 .field label{display:block;font-size:12px;font-weight:600;color:var(--muted);margin-bottom:5px;text-transform:uppercase;letter-spacing:.4px}
 .field input,.field select,.field textarea{width:100%;padding:11px 13px;border:1.5px solid var(--border);border-radius:10px;font-size:15px;background:#fff;color:var(--text);outline:none;transition:border-color .2s;-webkit-appearance:none}
@@ -49,8 +39,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .field input[type=password]{letter-spacing:2px}
 .field textarea{min-height:80px;resize:vertical;font-family:monospace;font-size:13px}
 .field .hint{font-size:11px;color:var(--muted);margin-top:4px}
-
-/* ── BUTTONS ── */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:12px 18px;border-radius:10px;font-size:14px;font-weight:700;border:none;cursor:pointer;transition:all .2s;width:100%;margin-bottom:8px;letter-spacing:.2px}
 .btn-primary{background:var(--primary);color:#fff}
 .btn-primary:active{background:var(--primary-dark);transform:scale(.98)}
@@ -63,22 +51,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .btn-sm{padding:8px 14px;font-size:13px;width:auto;margin-bottom:0}
 .btn:disabled{opacity:.5;cursor:default}
 .btn svg{width:18px;height:18px}
-
-/* ── STATUS BADGE ── */
 .badge{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:700}
 .badge-ok{background:#E8F5E9;color:var(--success)}
 .badge-err{background:#FFEBEE;color:var(--error)}
 .badge-warn{background:#FFF8E1;color:var(--warn)}
 .badge-info{background:#E3F2FD;color:var(--primary)}
-
-/* ── ALERT ── */
 .alert{padding:12px 14px;border-radius:10px;font-size:13px;margin-bottom:12px;line-height:1.5;display:flex;gap:8px;align-items:flex-start}
 .alert-info{background:#E3F2FD;color:#1565C0;border-left:4px solid #1976D2}
 .alert-warn{background:#FFF8E1;color:#E65100;border-left:4px solid #FF8F00}
 .alert-err{background:#FFEBEE;color:#B71C1C;border-left:4px solid #E53935}
 .alert-ok{background:#E8F5E9;color:#1B5E20;border-left:4px solid #43A047}
-
-/* ── TABLE ── */
 .tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:10px;border-radius:10px;border:1px solid var(--border)}
 table{width:100%;border-collapse:collapse;font-size:13px;min-width:500px}
 th{background:var(--primary);color:#fff;padding:9px 10px;text-align:left;font-size:12px;font-weight:700;position:sticky;top:0}
@@ -86,8 +68,6 @@ td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:middle}
 tr:last-child td{border-bottom:none}
 tr:nth-child(even) td{background:#F8FAFC}
 tr:active td{background:#E3F2FD}
-
-/* ── EMPRESA LIST ── */
 .empresa-item{display:flex;align-items:center;gap:10px;padding:12px;border-radius:10px;border:1.5px solid var(--border);margin-bottom:8px;background:#fff;cursor:pointer;transition:all .2s}
 .empresa-item.selected{border-color:var(--primary);background:#EFF4FF}
 .empresa-item:active{transform:scale(.99)}
@@ -96,30 +76,20 @@ tr:active td{background:#E3F2FD}
 .empresa-name{font-weight:700;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .empresa-nit{font-size:12px;color:var(--muted)}
 .empresa-actions{display:flex;gap:6px}
-
-/* ── LOADER ── */
 .spinner{width:24px;height:24px;border:3px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:inline-block}
 @keyframes spin{to{transform:rotate(360deg)}}
 .loading-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:999;align-items:center;justify-content:center;flex-direction:column;gap:14px;color:#fff;font-size:14px;font-weight:600}
 .loading-overlay.show{display:flex}
 .loading-overlay .big-spinner{width:48px;height:48px;border-width:5px}
-
-/* ── TABS ── */
 .section{display:none}
 .section.active{display:block}
-
-/* ── PROGRESS BAR ── */
 .progress{height:6px;background:#E3F2FD;border-radius:3px;overflow:hidden;margin:8px 0}
 .progress-bar{height:100%;background:var(--primary);border-radius:3px;transition:width .3s;width:0}
-
-/* ── MODAL ── */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:200;align-items:flex-end;justify-content:center}
 .modal-overlay.show{display:flex}
 .modal{background:#fff;border-radius:20px 20px 0 0;padding:20px;width:100%;max-height:90vh;overflow-y:auto}
 .modal-title{font-size:17px;font-weight:800;margin-bottom:16px;color:var(--primary)}
 .modal-close{float:right;background:none;border:none;font-size:22px;cursor:pointer;color:var(--muted);margin-top:-4px}
-
-/* ── MISC ── */
 .divider{border:none;border-top:1px solid var(--border);margin:14px 0}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .empty-state{text-align:center;padding:40px 20px;color:var(--muted)}
@@ -132,14 +102,7 @@ tr:active td{background:#E3F2FD}
 </style>
 </head>
 <body>
-
-<!-- Loading overlay -->
-<div class="loading-overlay" id="loadingOverlay">
-  <div class="spinner big-spinner"></div>
-  <span id="loadingMsg">Procesando...</span>
-</div>
-
-<!-- Modal empresa -->
+<div class="loading-overlay" id="loadingOverlay"><div class="spinner big-spinner"></div><span id="loadingMsg">Procesando...</span></div>
 <div class="modal-overlay" id="modalEmpresa">
   <div class="modal">
     <button class="modal-close" onclick="cerrarModal()">×</button>
@@ -170,20 +133,15 @@ tr:active td{background:#E3F2FD}
     <button class="btn btn-outline" onclick="cerrarModal()">Cancelar</button>
   </div>
 </div>
-
-<!-- App Header -->
 <div class="app-header">
   <div>
     <div class="app-logo">Conta<span>col</span></div>
     <div class="app-subtitle">Facturación Electrónica Colombia</div>
   </div>
   <div class="empresa-chip" onclick="navTo('empresas')" id="headerEmpresa">Sin empresa</div>
+  <div id="proxyBadge" style="display:none;background:rgba(46,125,50,.35);color:#C8E6C9;border-radius:20px;padding:3px 9px;font-size:10px;font-weight:700;flex-shrink:0">🔌 PC</div>
 </div>
-
-<!-- Main scroll area -->
 <div class="app-body">
-
-  <!-- ─── TAB: EMPRESAS ─── -->
   <div class="section active" id="sec-empresas">
     <div class="card">
       <div class="card-title">
@@ -201,12 +159,8 @@ tr:active td{background:#E3F2FD}
       <span>Seleccione una empresa para activarla y luego use las pestañas <b>DIAN</b> y <b>SIIGO</b>.</span>
     </div>
   </div>
-
-  <!-- ─── TAB: DIAN ─── -->
   <div class="section" id="sec-dian">
-    <div id="dianNoEmpresa" class="alert alert-warn" style="display:none">
-      <span>⚠️ Seleccione primero una empresa en la pestaña <b>Empresas</b>.</span>
-    </div>
+    <div id="dianNoEmpresa" class="alert alert-warn" style="display:none"><span>⚠️ Seleccione primero una empresa en la pestaña <b>Empresas</b>.</span></div>
     <div id="dianPanel">
       <div class="card">
         <div class="card-title">
@@ -228,7 +182,6 @@ tr:active td{background:#E3F2FD}
         </button>
         <div id="dianValidResult" style="margin-top:8px"></div>
       </div>
-
       <div class="card">
         <div class="card-title">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -246,23 +199,13 @@ tr:active td{background:#E3F2FD}
         </button>
         <div id="dianDescResult"></div>
       </div>
-
       <div class="alert alert-warn" id="dianCorsAlert" style="display:none">
-        <div>
-          <b>⚠️ Error CORS</b><br>
-          El navegador bloquea las peticiones desde archivos locales. Para solucionar:<br><br>
-          <b>En PC:</b> <code>python3 -m http.server 8080</code> y abra <code>http://localhost:8080</code><br>
-          <b>En Cel:</b> Use el archivo desde un servidor o desde Google Drive con Google Sites.
-        </div>
+        <div><b>⚠️ Error CORS</b><br>El navegador bloquea peticiones directas. En PC use <code>iniciar_contacol.bat</code> para activar los proxies.</div>
       </div>
     </div>
   </div>
-
-  <!-- ─── TAB: SIIGO ─── -->
   <div class="section" id="sec-siigo">
-    <div id="siigoNoEmpresa" class="alert alert-warn" style="display:none">
-      <span>⚠️ Seleccione primero una empresa en la pestaña <b>Empresas</b>.</span>
-    </div>
+    <div id="siigoNoEmpresa" class="alert alert-warn" style="display:none"><span>⚠️ Seleccione primero una empresa en la pestaña <b>Empresas</b>.</span></div>
     <div id="siigoPanel">
       <div class="card">
         <div class="card-title">
@@ -278,7 +221,6 @@ tr:active td{background:#E3F2FD}
         </button>
         <div id="siigoConResult" style="margin-top:8px"></div>
       </div>
-
       <div class="card" id="siigoActionsCard" style="display:none">
         <div class="card-title">Acciones SIIGO</div>
         <button class="btn btn-outline" onclick="siigoCargarCuentas()">📒 Cargar Plan de Cuentas</button>
@@ -287,8 +229,6 @@ tr:active td{background:#E3F2FD}
       </div>
     </div>
   </div>
-
-  <!-- ─── TAB: FACTURAS ─── -->
   <div class="section" id="sec-facturas">
     <div id="facturasVacioMsg" class="empty-state">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
@@ -307,8 +247,6 @@ tr:active td{background:#E3F2FD}
       </div>
     </div>
   </div>
-
-  <!-- ─── TAB: AYUDA ─── -->
   <div class="section" id="sec-ayuda">
     <div class="card">
       <div class="card-title">🚀 Inicio Rápido</div>
@@ -331,11 +269,15 @@ tr:active td{background:#E3F2FD}
       </ol>
     </div>
     <div class="card">
-      <div class="card-title">⚠️ Error CORS en PC</div>
-      <div style="font-size:14px;line-height:1.7">
-        Si abre la app desde un archivo local (<code>file://</code>), el navegador bloqueará las llamadas a la API. Solución:<br><br>
-        <code style="background:#f0f4f8;padding:6px 10px;border-radius:6px;display:block;word-break:break-all">python3 -m http.server 8080</code><br>
-        Luego abra <code>http://localhost:8080</code>
+      <div class="card-title">🖥️ Uso en PC (Windows)</div>
+      <div style="font-size:14px;line-height:1.9">
+        <b>Archivos necesarios (misma carpeta):</b><br>
+        📄 <code>contacol.html</code><br>
+        ⚡ <code>proxy_dian.ps1</code> → puerto 3101<br>
+        🟠 <code>proxy_siigo.ps1</code> → puerto 3100<br>
+        🚀 <code>iniciar_contacol.bat</code><br><br>
+        <b>Para iniciar:</b> doble clic en <code>iniciar_contacol.bat</code><br>
+        La app detecta automáticamente los proxies y muestra 🔌 PC en el encabezado.
       </div>
     </div>
     <div class="card">
@@ -348,13 +290,10 @@ tr:active td{background:#E3F2FD}
     </div>
     <div class="card">
       <div class="card-title">ℹ️ Versión</div>
-      <div style="font-size:13px;color:var(--muted)">Contacol Mobile v1.0 · Colombia · 2024<br>Integración DIAN FE + SIIGO API</div>
+      <div style="font-size:13px;color:var(--muted)">Contacol v2.0 · Colombia · 2024-2025<br>DIAN FE + SIIGO API + Proxies locales PC</div>
     </div>
   </div>
-
-</div><!-- end app-body -->
-
-<!-- Bottom navigation -->
+</div>
 <nav class="bottom-nav">
   <button class="nav-btn active" id="nav-empresas" onclick="navTo('empresas')">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -377,32 +316,20 @@ tr:active td{background:#E3F2FD}
     Ayuda
   </button>
 </nav>
-
 <script>
 'use strict';
-
-// ── STATE ──────────────────────────────────────────────────
-const LS = {
-  EMPRESAS: 'cc_empresas_v1',
-  SEL: 'cc_sel_v1',
-  DIAN_FACTS: 'cc_dian_facts_v1',
-  SIIGO_TOKEN: 'cc_siigo_tok_v1'
-};
-
-let empresas = JSON.parse(localStorage.getItem(LS.EMPRESAS)||'[]');
-let selectedIdx = parseInt(localStorage.getItem(LS.SEL)||'-1');
-let dianFacturas = JSON.parse(localStorage.getItem(LS.DIAN_FACTS)||'[]');
-let siigoToken = localStorage.getItem(LS.SIIGO_TOKEN)||'';
-let filteredFacturas = [];
-
-function saveEmpresas(){ localStorage.setItem(LS.EMPRESAS, JSON.stringify(empresas)); }
-function saveSelected(){ localStorage.setItem(LS.SEL, selectedIdx); }
-function saveDianFacts(){ localStorage.setItem(LS.DIAN_FACTS, JSON.stringify(dianFacturas)); }
-function saveSiigoToken(t){ siigoToken=t; localStorage.setItem(LS.SIIGO_TOKEN, t); }
-
-function empresa(){ return selectedIdx>=0 && selectedIdx<empresas.length ? empresas[selectedIdx] : null; }
-
-// ── NAVIGATION ──────────────────────────────────────────────
+const LS={EMPRESAS:'cc_empresas_v1',SEL:'cc_sel_v1',DIAN_FACTS:'cc_dian_facts_v1',SIIGO_TOKEN:'cc_siigo_tok_v1'};
+let empresas=JSON.parse(localStorage.getItem(LS.EMPRESAS)||'[]');
+let selectedIdx=parseInt(localStorage.getItem(LS.SEL)||'-1');
+let dianFacturas=JSON.parse(localStorage.getItem(LS.DIAN_FACTS)||'[]');
+let siigoToken=localStorage.getItem(LS.SIIGO_TOKEN)||'';
+let filteredFacturas=[];
+function saveEmpresas(){localStorage.setItem(LS.EMPRESAS,JSON.stringify(empresas));}
+function saveSelected(){localStorage.setItem(LS.SEL,selectedIdx);}
+function saveDianFacts(){localStorage.setItem(LS.DIAN_FACTS,JSON.stringify(dianFacturas));}
+function saveSiigoToken(t){siigoToken=t;localStorage.setItem(LS.SIIGO_TOKEN,t);}
+function empresa(){return selectedIdx>=0&&selectedIdx<empresas.length?empresas[selectedIdx]:null;}
+function isLocalhost(){return['localhost','127.0.0.1'].includes(location.hostname);}
 function navTo(tab){
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
@@ -413,17 +340,9 @@ function navTo(tab){
   if(tab==='facturas') renderFacturas();
   if(tab==='empresas') renderEmpresas();
 }
-
-// ── LOADING ──────────────────────────────────────────────────
-function showLoading(msg='Procesando...'){
-  document.getElementById('loadingMsg').textContent=msg;
-  document.getElementById('loadingOverlay').classList.add('show');
-}
-function hideLoading(){ document.getElementById('loadingOverlay').classList.remove('show'); }
-
-// ── MODAL EMPRESA ────────────────────────────────────────────
-let editingIdx = -1;
-
+function showLoading(msg='Procesando...'){document.getElementById('loadingMsg').textContent=msg;document.getElementById('loadingOverlay').classList.add('show');}
+function hideLoading(){document.getElementById('loadingOverlay').classList.remove('show');}
+let editingIdx=-1;
 function abrirModalNueva(){
   editingIdx=-1;
   document.getElementById('modalEmpresaTitle').textContent='Nueva Empresa';
@@ -432,7 +351,6 @@ function abrirModalNueva(){
   document.getElementById('mUrlRow').style.display='none';
   document.getElementById('modalEmpresa').classList.add('show');
 }
-
 function abrirModalEditar(idx){
   editingIdx=idx;
   const e=empresas[idx];
@@ -447,155 +365,82 @@ function abrirModalEditar(idx){
   document.getElementById('mUrlRow').style.display=e.ambiente==='custom'?'block':'none';
   document.getElementById('modalEmpresa').classList.add('show');
 }
-
 document.getElementById('mEmpAmbiente').addEventListener('change',function(){
   document.getElementById('mUrlRow').style.display=this.value==='custom'?'block':'none';
 });
-
-function cerrarModal(){ document.getElementById('modalEmpresa').classList.remove('show'); }
-
+function cerrarModal(){document.getElementById('modalEmpresa').classList.remove('show');}
 function guardarEmpresa(){
   const nombre=document.getElementById('mEmpNombre').value.trim();
   const nit=document.getElementById('mEmpNit').value.trim();
-  if(!nombre){ alert('Ingrese el nombre de la empresa'); return; }
-  const obj={
-    nombre, nit,
-    ambiente: document.getElementById('mEmpAmbiente').value,
-    dianApiUrl: document.getElementById('mEmpUrl').value.trim(),
-    dianToken: document.getElementById('mEmpToken').value.trim(),
-    siigoUser: document.getElementById('mSiigoUser').value.trim(),
-    siigoKey: document.getElementById('mSiigoKey').value.trim()
-  };
-  if(editingIdx>=0){ empresas[editingIdx]=obj; }
-  else { empresas.push(obj); selectedIdx=empresas.length-1; saveSelected(); }
-  saveEmpresas();
-  cerrarModal();
-  renderEmpresas();
-  actualizarHeader();
+  if(!nombre){alert('Ingrese el nombre de la empresa');return;}
+  const obj={nombre,nit,ambiente:document.getElementById('mEmpAmbiente').value,dianApiUrl:document.getElementById('mEmpUrl').value.trim(),dianToken:document.getElementById('mEmpToken').value.trim(),siigoUser:document.getElementById('mSiigoUser').value.trim(),siigoKey:document.getElementById('mSiigoKey').value.trim()};
+  if(editingIdx>=0){empresas[editingIdx]=obj;}
+  else{empresas.push(obj);selectedIdx=empresas.length-1;saveSelected();}
+  saveEmpresas();cerrarModal();renderEmpresas();actualizarHeader();
 }
-
 function eliminarEmpresa(idx){
-  if(!confirm('¿Eliminar "'+empresas[idx].nombre+'"?')) return;
+  if(!confirm('¿Eliminar "'+empresas[idx].nombre+'"?'))return;
   empresas.splice(idx,1);
-  if(selectedIdx===idx) selectedIdx=-1;
-  else if(selectedIdx>idx) selectedIdx--;
-  saveEmpresas(); saveSelected();
-  renderEmpresas(); actualizarHeader();
+  if(selectedIdx===idx)selectedIdx=-1;
+  else if(selectedIdx>idx)selectedIdx--;
+  saveEmpresas();saveSelected();renderEmpresas();actualizarHeader();
 }
-
-function seleccionarEmpresa(idx){
-  selectedIdx=idx; saveSelected();
-  renderEmpresas(); actualizarHeader();
-}
-
+function seleccionarEmpresa(idx){selectedIdx=idx;saveSelected();renderEmpresas();actualizarHeader();}
 function renderEmpresas(){
   const el=document.getElementById('listaEmpresas');
-  if(!empresas.length){
-    el.innerHTML='<div class="empty-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg><div>Sin empresas registradas</div></div>';
-    return;
-  }
-  el.innerHTML=empresas.map((e,i)=>`
-    <div class="empresa-item ${i===selectedIdx?'selected':''}" onclick="seleccionarEmpresa(${i})">
-      <div class="empresa-avatar">${e.nombre.charAt(0).toUpperCase()}</div>
-      <div class="empresa-info">
-        <div class="empresa-name">${e.nombre}</div>
-        <div class="empresa-nit">NIT ${e.nit||'—'} · ${e.dianToken?'🔑 Token OK':'⚠️ Sin token'} ${e.siigoKey?'· 🟠 SIIGO':''}</div>
-      </div>
-      <div class="empresa-actions">
-        <button class="btn btn-outline btn-sm" onclick="event.stopPropagation();abrirModalEditar(${i})">✏️</button>
-        <button class="btn btn-sm" style="background:#FFEBEE;color:#C62828;border:none" onclick="event.stopPropagation();eliminarEmpresa(${i})">🗑️</button>
-      </div>
-    </div>`).join('');
+  if(!empresas.length){el.innerHTML='<div class="empty-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg><div>Sin empresas registradas</div></div>';return;}
+  el.innerHTML=empresas.map((e,i)=>`<div class="empresa-item ${i===selectedIdx?'selected':''}" onclick="seleccionarEmpresa(${i})"><div class="empresa-avatar">${e.nombre.charAt(0).toUpperCase()}</div><div class="empresa-info"><div class="empresa-name">${e.nombre}</div><div class="empresa-nit">NIT ${e.nit||'—'} · ${e.dianToken?'🔑 Token OK':'⚠️ Sin token'} ${e.siigoKey?'· 🟠 SIIGO':''}</div></div><div class="empresa-actions"><button class="btn btn-outline btn-sm" onclick="event.stopPropagation();abrirModalEditar(${i})">✏️</button><button class="btn btn-sm" style="background:#FFEBEE;color:#C62828;border:none" onclick="event.stopPropagation();eliminarEmpresa(${i})">🗑️</button></div></div>`).join('');
 }
-
-function actualizarHeader(){
-  const e=empresa();
-  document.getElementById('headerEmpresa').textContent = e ? e.nombre : 'Sin empresa';
-}
-
-// ── DIAN PANEL ───────────────────────────────────────────────
+function actualizarHeader(){const e=empresa();document.getElementById('headerEmpresa').textContent=e?e.nombre:'Sin empresa';}
 function dianBaseUrl(){
-  const e=empresa(); if(!e) return 'https://catalogo-vpfe.dian.gov.co/api';
+  const e=empresa();
+  if(isLocalhost()){return e?.ambiente==='hab'?'http://localhost:3101/hab/api':'http://localhost:3101/api';}
   const custom=document.getElementById('dianUrl')?.value.trim().replace(/\/$/,'');
-  if(custom) return custom;
-  if(e.dianApiUrl) return e.dianApiUrl.replace(/\/$/,'');
-  return e.ambiente==='hab'
-    ? 'https://catalogo-vpfe-hab.dian.gov.co/api'
-    : 'https://catalogo-vpfe.dian.gov.co/api';
+  if(custom)return custom;
+  if(e?.dianApiUrl)return e.dianApiUrl.replace(/\/$/,'');
+  return e?.ambiente==='hab'?'https://catalogo-vpfe-hab.dian.gov.co/api':'https://catalogo-vpfe.dian.gov.co/api';
 }
-
-function getDianToken(){
-  return (document.getElementById('dianTokenField')?.value||'').trim()
-      || empresa()?.dianToken||'';
-}
-
-function dianGuardarUrl(){
-  const e=empresa(); if(!e) return;
-  e.dianApiUrl=document.getElementById('dianUrl').value.trim();
-  saveEmpresas();
-}
-
-function dianGuardarToken(){
-  const e=empresa(); if(!e) return;
-  e.dianToken=document.getElementById('dianTokenField').value.trim();
-  saveEmpresas();
-}
-
+function siigoApiBase(){return isLocalhost()?'http://localhost:3100':'https://api.siigo.com';}
+function getDianToken(){return(document.getElementById('dianTokenField')?.value||'').trim()||empresa()?.dianToken||'';}
+function dianGuardarUrl(){const e=empresa();if(!e)return;e.dianApiUrl=document.getElementById('dianUrl').value.trim();saveEmpresas();}
+function dianGuardarToken(){const e=empresa();if(!e)return;e.dianToken=document.getElementById('dianTokenField').value.trim();saveEmpresas();}
 function renderDIANPanel(){
   const e=empresa();
   document.getElementById('dianNoEmpresa').style.display=e?'none':'block';
   document.getElementById('dianPanel').style.display=e?'block':'none';
-  if(!e) return;
+  if(!e)return;
   document.getElementById('dianUrl').value=e.dianApiUrl||'';
   document.getElementById('dianTokenField').value=e.dianToken||'';
   document.getElementById('dianCorsAlert').style.display='none';
   if(!document.getElementById('dianFechaDesde').value){
-    const hoy=new Date(), hace30=new Date(hoy-30*864e5);
+    const hoy=new Date(),hace30=new Date(hoy-30*864e5);
     document.getElementById('dianFechaHasta').value=hoy.toISOString().slice(0,10);
     document.getElementById('dianFechaDesde').value=hace30.toISOString().slice(0,10);
   }
 }
-
 async function dianValidar(){
   const token=getDianToken();
-  if(!token){ alert('Ingrese el token DIAN primero'); return; }
+  if(!token){alert('Ingrese el token DIAN primero');return;}
   const base=dianBaseUrl();
   const statusEl=document.getElementById('dianStatus');
   const resEl=document.getElementById('dianValidResult');
-  statusEl.className='badge badge-info'; statusEl.textContent='Verificando…';
-  resEl.innerHTML='';
+  statusEl.className='badge badge-info';statusEl.textContent='Verificando…';resEl.innerHTML='';
   const endpoints=['/GetNumberingRange','/ping','/status','/validate','/comprobantes?page=1&per_page=1'];
   let ok=false;
   for(const ep of endpoints){
     try{
       const r=await fetch(base+ep,{headers:{Authorization:'Bearer '+token},signal:AbortSignal.timeout(8000)});
-      if(r.status===200||r.status===204){
-        statusEl.className='badge badge-ok'; statusEl.textContent='✅ Conectado';
-        resEl.innerHTML=`<div class="alert alert-ok">✅ Conexión exitosa en <code>${ep}</code> (HTTP ${r.status})</div>`;
-        ok=true; break;
-      } else if(r.status===401||r.status===403){
-        statusEl.className='badge badge-err'; statusEl.textContent='❌ Token inválido';
-        resEl.innerHTML=`<div class="alert alert-err">❌ Token rechazado (HTTP ${r.status}). Verifique que sea el token correcto.</div>`;
-        ok=true; break;
-      }
-    } catch(err){
-      if(err.name==='TypeError'&&err.message.includes('fetch')){
-        document.getElementById('dianCorsAlert').style.display='block';
-        statusEl.className='badge badge-warn'; statusEl.textContent='⚠️ Error CORS';
-        resEl.innerHTML=`<div class="alert alert-warn">⚠️ Error de red/CORS. Ver la sección de ayuda abajo.</div>`;
-        ok=true; break;
-      }
+      if(r.status===200||r.status===204){statusEl.className='badge badge-ok';statusEl.textContent='✅ Conectado';resEl.innerHTML=`<div class="alert alert-ok">✅ Conexión exitosa en <code>${ep}</code> (HTTP ${r.status})</div>`;ok=true;break;}
+      else if(r.status===401||r.status===403){statusEl.className='badge badge-err';statusEl.textContent='❌ Token inválido';resEl.innerHTML=`<div class="alert alert-err">❌ Token rechazado (HTTP ${r.status}).</div>`;ok=true;break;}
+    }catch(err){
+      if(err.name==='TypeError'){document.getElementById('dianCorsAlert').style.display='block';statusEl.className='badge badge-warn';statusEl.textContent='⚠️ Error CORS';resEl.innerHTML=`<div class="alert alert-warn">⚠️ Error CORS. En PC use iniciar_contacol.bat</div>`;ok=true;break;}
     }
   }
-  if(!ok){
-    statusEl.className='badge badge-warn'; statusEl.textContent='⚠️ Sin respuesta';
-    resEl.innerHTML=`<div class="alert alert-warn">No se obtuvo respuesta positiva. Verifique la URL y el token.</div>`;
-  }
+  if(!ok){statusEl.className='badge badge-warn';statusEl.textContent='⚠️ Sin respuesta';resEl.innerHTML=`<div class="alert alert-warn">No se obtuvo respuesta. Verifique URL y token.</div>`;}
 }
-
 async function dianDescargar(){
   const token=getDianToken();
-  if(!token){ alert('Ingrese el token DIAN primero'); return; }
+  if(!token){alert('Ingrese el token DIAN primero');return;}
   const base=dianBaseUrl();
   const desde=document.getElementById('dianFechaDesde').value;
   const hasta=document.getElementById('dianFechaHasta').value;
@@ -603,252 +448,125 @@ async function dianDescargar(){
   const progEl=document.getElementById('dianProg');
   const barEl=document.getElementById('dianProgBar');
   const resEl=document.getElementById('dianDescResult');
-  progEl.style.display='block'; barEl.style.width='10%'; resEl.innerHTML='';
+  progEl.style.display='block';barEl.style.width='10%';resEl.innerHTML='';
   const headers={Authorization:'Bearer '+token,'Content-Type':'application/json'};
   const p=new URLSearchParams();
-  if(desde) p.set('fechaDesde',desde);
-  if(hasta) p.set('fechaHasta',hasta);
-  if(nit) p.set('nit',nit);
-  const endpoints=[
-    '/GetDocumentList?'+p,
-    '/comprobantes?'+p,
-    '/invoices?'+p,
-    '/facturas?'+p,
-    '/documents?'+p,
-    '/GetComprobantes?'+p
-  ];
-  let facturas=null, lastErr='';
+  if(desde)p.set('fechaDesde',desde);
+  if(hasta)p.set('fechaHasta',hasta);
+  if(nit)p.set('nit',nit);
+  const endpoints=['/GetDocumentList?'+p,'/comprobantes?'+p,'/invoices?'+p,'/facturas?'+p,'/documents?'+p,'/GetComprobantes?'+p];
+  let facturas=null,lastErr='';
   for(let i=0;i<endpoints.length;i++){
     barEl.style.width=((i+1)/endpoints.length*80+10)+'%';
     try{
       const r=await fetch(base+endpoints[i],{headers,signal:AbortSignal.timeout(15000)});
-      if(r.ok){
-        const data=await r.json();
-        const arr=Array.isArray(data)?data:(data.data||data.items||data.results||data.comprobantes||data.facturas||data.documents||[]);
-        if(arr.length>=0){ facturas=arr; break; }
-      }
-    } catch(err){
+      if(r.ok){const data=await r.json();const arr=Array.isArray(data)?data:(data.data||data.items||data.results||data.comprobantes||data.facturas||data.documents||[]);if(arr.length>=0){facturas=arr;break;}}
+    }catch(err){
       lastErr=err.message;
-      if(err.name==='TypeError'){
-        document.getElementById('dianCorsAlert').style.display='block';
-        barEl.style.width='100%';
-        resEl.innerHTML=`<div class="alert alert-err">⚠️ Error CORS/red. Ver sección Ayuda.</div>`;
-        return;
-      }
+      if(err.name==='TypeError'){document.getElementById('dianCorsAlert').style.display='block';barEl.style.width='100%';resEl.innerHTML=`<div class="alert alert-err">⚠️ Error CORS. Use iniciar_contacol.bat en PC.</div>`;return;}
     }
   }
   barEl.style.width='100%';
-  if(facturas===null){
-    resEl.innerHTML=`<div class="alert alert-err">❌ No se pudo obtener facturas. Verifique el token y la URL.<br><small>${lastErr}</small></div>`;
-    return;
-  }
-  if(!facturas.length){
-    resEl.innerHTML=`<div class="alert alert-warn">⚠️ No se encontraron facturas en el rango indicado.</div>`;
-    return;
-  }
-  const norm=facturas.map(f=>({
-    numero: f.numero||f.number||f.NumeroFactura||f.invoice_number||'',
-    fecha: (f.fecha||f.date||f.fechaEmision||f.issue_date||'').slice(0,10),
-    tercero: f.tercero||f.razonSocial||f.providerName||f.name||'',
-    nit: f.nit||f.identificacion||f.taxId||'',
-    subtotal: +((f.subtotal||f.valorBase||f.baseAmount||0)),
-    iva: +((f.iva||f.impuesto||f.tax||0)),
-    retencion: +((f.retencion||f.retefuente||f.withholding||0)),
-    total: +((f.total||f.valorTotal||f.totalAmount||f.grand_total||0)),
-    estado: f.estado||f.status||f.estado_documento||'',
-    fuente:'DIAN'
-  }));
+  if(facturas===null){resEl.innerHTML=`<div class="alert alert-err">❌ No se pudo obtener facturas.<br><small>${lastErr}</small></div>`;return;}
+  if(!facturas.length){resEl.innerHTML=`<div class="alert alert-warn">⚠️ No se encontraron facturas en el rango.</div>`;return;}
+  const norm=facturas.map(f=>({numero:f.numero||f.number||f.NumeroFactura||f.invoice_number||'',fecha:(f.fecha||f.date||f.fechaEmision||f.issue_date||'').slice(0,10),tercero:f.tercero||f.razonSocial||f.providerName||f.name||'',nit:f.nit||f.identificacion||f.taxId||'',subtotal:+((f.subtotal||f.valorBase||f.baseAmount||0)),iva:+((f.iva||f.impuesto||f.tax||0)),retencion:+((f.retencion||f.retefuente||f.withholding||0)),total:+((f.total||f.valorTotal||f.totalAmount||f.grand_total||0)),estado:f.estado||f.status||f.estado_documento||'',fuente:'DIAN'}));
   const nums=new Set(norm.map(f=>f.numero).filter(Boolean));
   const prevs=dianFacturas.filter(f=>f.fuente==='DIAN'&&!nums.has(f.numero));
-  dianFacturas=[...norm,...prevs];
-  saveDianFacts();
-  resEl.innerHTML=`<div class="alert alert-ok">✅ ${norm.length} facturas descargadas. Ver en la pestaña <b>Facturas</b>.</div>`;
+  dianFacturas=[...norm,...prevs];saveDianFacts();
+  resEl.innerHTML=`<div class="alert alert-ok">✅ ${norm.length} facturas descargadas. Ver en <b>Facturas</b>.</div>`;
   renderFacturas();
 }
-
-// ── SIIGO PANEL ──────────────────────────────────────────────
 function renderSIIGOPanel(){
   const e=empresa();
   document.getElementById('siigoNoEmpresa').style.display=e?'none':'block';
   document.getElementById('siigoPanel').style.display=e?'block':'none';
-  if(!e) return;
+  if(!e)return;
   document.getElementById('siigoUser').value=e.siigoUser||'';
   document.getElementById('siigoKey').value=e.siigoKey||'';
-  if(siigoToken){
-    document.getElementById('siigoStatus').className='badge badge-ok';
-    document.getElementById('siigoStatus').textContent='✅ Conectado';
-    document.getElementById('siigoActionsCard').style.display='block';
-  }
+  if(siigoToken){document.getElementById('siigoStatus').className='badge badge-ok';document.getElementById('siigoStatus').textContent='✅ Conectado';document.getElementById('siigoActionsCard').style.display='block';}
 }
-
-function siigoGuardar(){
-  const e=empresa(); if(!e) return;
-  e.siigoUser=document.getElementById('siigoUser').value.trim();
-  e.siigoKey=document.getElementById('siigoKey').value.trim();
-  saveEmpresas();
-}
-
+function siigoGuardar(){const e=empresa();if(!e)return;e.siigoUser=document.getElementById('siigoUser').value.trim();e.siigoKey=document.getElementById('siigoKey').value.trim();saveEmpresas();}
 async function siigoConectar(){
   const user=document.getElementById('siigoUser').value.trim();
   const key=document.getElementById('siigoKey').value.trim();
-  if(!user||!key){ alert('Ingrese usuario y llave de acceso SIIGO'); return; }
+  if(!user||!key){alert('Ingrese usuario y llave de acceso SIIGO');return;}
   siigoGuardar();
   const statusEl=document.getElementById('siigoStatus');
   const resEl=document.getElementById('siigoConResult');
-  statusEl.className='badge badge-info'; statusEl.textContent='Conectando…';
-  resEl.innerHTML='';
+  statusEl.className='badge badge-info';statusEl.textContent='Conectando…';resEl.innerHTML='';
   try{
-    const r=await fetch('https://api.siigo.com/auth',{
-      method:'POST',
-      headers:{'Content-Type':'application/json','Partner-Id':'contacol-mobile'},
-      body:JSON.stringify({username:user,access_key:key}),
-      signal:AbortSignal.timeout(12000)
-    });
+    const r=await fetch(siigoApiBase()+'/auth',{method:'POST',headers:{'Content-Type':'application/json','Partner-Id':'contacol-mobile'},body:JSON.stringify({username:user,access_key:key}),signal:AbortSignal.timeout(12000)});
     const data=await r.json();
-    if(r.ok&&data.access_token){
-      saveSiigoToken(data.access_token);
-      statusEl.className='badge badge-ok'; statusEl.textContent='✅ Conectado';
-      resEl.innerHTML=`<div class="alert alert-ok">✅ Autenticado en SIIGO exitosamente.</div>`;
-      document.getElementById('siigoActionsCard').style.display='block';
-    } else {
-      statusEl.className='badge badge-err'; statusEl.textContent='❌ Error';
-      resEl.innerHTML=`<div class="alert alert-err">❌ ${data.message||data.error||'Credenciales inválidas'}</div>`;
-    }
-  } catch(err){
-    statusEl.className='badge badge-warn'; statusEl.textContent='⚠️ Sin respuesta';
-    resEl.innerHTML=`<div class="alert alert-err">⚠️ Error de red/CORS: ${err.message}<br>Use python3 -m http.server 8080</div>`;
+    if(r.ok&&data.access_token){saveSiigoToken(data.access_token);statusEl.className='badge badge-ok';statusEl.textContent='✅ Conectado';resEl.innerHTML=`<div class="alert alert-ok">✅ Autenticado en SIIGO.</div>`;document.getElementById('siigoActionsCard').style.display='block';}
+    else{statusEl.className='badge badge-err';statusEl.textContent='❌ Error';resEl.innerHTML=`<div class="alert alert-err">❌ ${data.message||data.error||'Credenciales inválidas'}</div>`;}
+  }catch(err){
+    statusEl.className='badge badge-warn';statusEl.textContent='⚠️ Sin respuesta';
+    resEl.innerHTML=`<div class="alert alert-err">⚠️ CORS: ${err.message}<br>Use iniciar_contacol.bat en PC.</div>`;
   }
 }
-
 async function siigoCargarCuentas(){
-  if(!siigoToken){ alert('Conecte a SIIGO primero'); return; }
+  if(!siigoToken){alert('Conecte a SIIGO primero');return;}
   const resEl=document.getElementById('siigoDataResult');
-  resEl.innerHTML='<span>Cargando plan de cuentas…</span>';
+  resEl.innerHTML='<span>Cargando cuentas…</span>';
   try{
-    const r=await fetch('https://api.siigo.com/v1/accounts',{
-      headers:{Authorization:'Bearer '+siigoToken,'Partner-Id':'contacol-mobile'},
-      signal:AbortSignal.timeout(15000)
-    });
-    if(r.status===401){ saveSiigoToken(''); resEl.innerHTML='<div class="alert alert-err">Token vencido. Vuelva a conectar.</div>'; return; }
+    const r=await fetch(siigoApiBase()+'/v1/accounts',{headers:{Authorization:'Bearer '+siigoToken,'Partner-Id':'contacol-mobile'},signal:AbortSignal.timeout(15000)});
+    if(r.status===401){saveSiigoToken('');resEl.innerHTML='<div class="alert alert-err">Token vencido.</div>';return;}
     const data=await r.json();
     const arr=Array.isArray(data)?data:(data.results||data.data||[]);
-    resEl.innerHTML=`<div class="alert alert-ok">✅ ${arr.length} cuentas cargadas del plan de cuentas SIIGO.</div>`;
-  } catch(err){
-    resEl.innerHTML=`<div class="alert alert-err">Error: ${err.message}</div>`;
-  }
+    resEl.innerHTML=`<div class="alert alert-ok">✅ ${arr.length} cuentas cargadas.</div>`;
+  }catch(err){resEl.innerHTML=`<div class="alert alert-err">Error: ${err.message}</div>`;}
 }
-
 async function siigoCargarFacturas(){
-  if(!siigoToken){ alert('Conecte a SIIGO primero'); return; }
+  if(!siigoToken){alert('Conecte a SIIGO primero');return;}
   const resEl=document.getElementById('siigoDataResult');
   resEl.innerHTML='<span>Cargando facturas SIIGO…</span>';
   try{
-    const r=await fetch('https://api.siigo.com/v1/invoices?page=1&page_size=100',{
-      headers:{Authorization:'Bearer '+siigoToken,'Partner-Id':'contacol-mobile'},
-      signal:AbortSignal.timeout(15000)
-    });
-    if(r.status===401){ saveSiigoToken(''); resEl.innerHTML='<div class="alert alert-err">Token vencido. Vuelva a conectar.</div>'; return; }
+    const r=await fetch(siigoApiBase()+'/v1/invoices?page=1&page_size=100',{headers:{Authorization:'Bearer '+siigoToken,'Partner-Id':'contacol-mobile'},signal:AbortSignal.timeout(15000)});
+    if(r.status===401){saveSiigoToken('');resEl.innerHTML='<div class="alert alert-err">Token vencido.</div>';return;}
     const data=await r.json();
     const arr=Array.isArray(data)?data:(data.results||data.data||data.items||[]);
-    const norm=arr.map(f=>({
-      numero: f.id||f.number||f.consecutive||'',
-      fecha: (f.date||f.issue_date||'').slice(0,10),
-      tercero: f.customer?.name||f.third_party?.name||'',
-      nit: f.customer?.identification||'',
-      subtotal: +(f.subtotal||0),
-      iva: +(f.taxes?.reduce((s,t)=>s+(t.value||0),0)||0),
-      retencion: 0,
-      total: +(f.total||0),
-      estado: f.stamp?.status||f.status||'',
-      fuente:'SIIGO'
-    }));
+    const norm=arr.map(f=>({numero:f.id||f.number||f.consecutive||'',fecha:(f.date||f.issue_date||'').slice(0,10),tercero:f.customer?.name||f.third_party?.name||'',nit:f.customer?.identification||'',subtotal:+(f.subtotal||0),iva:+(f.taxes?.reduce((s,t)=>s+(t.value||0),0)||0),retencion:0,total:+(f.total||0),estado:f.stamp?.status||f.status||'',fuente:'SIIGO'}));
     const nums=new Set(norm.map(f=>f.numero).filter(Boolean));
     const prevs=dianFacturas.filter(f=>f.fuente!=='SIIGO'||!nums.has(f.numero));
-    dianFacturas=[...norm,...prevs];
-    saveDianFacts();
-    resEl.innerHTML=`<div class="alert alert-ok">✅ ${norm.length} facturas de SIIGO cargadas. Ver en <b>Facturas</b>.</div>`;
+    dianFacturas=[...norm,...prevs];saveDianFacts();
+    resEl.innerHTML=`<div class="alert alert-ok">✅ ${norm.length} facturas SIIGO cargadas.</div>`;
     renderFacturas();
-  } catch(err){
-    resEl.innerHTML=`<div class="alert alert-err">Error: ${err.message}</div>`;
-  }
+  }catch(err){resEl.innerHTML=`<div class="alert alert-err">Error: ${err.message}</div>`;}
 }
-
-// ── FACTURAS TAB ─────────────────────────────────────────────
-function renderFacturas(){
-  filteredFacturas=[...dianFacturas];
-  actualizarTablaFacturas();
-}
-
+function renderFacturas(){filteredFacturas=[...dianFacturas];actualizarTablaFacturas();}
 function filtrarFacturas(){
   const q=(document.getElementById('facturasBuscar')?.value||'').toLowerCase();
-  filteredFacturas=q ? dianFacturas.filter(f=>
-    (f.numero+f.tercero+f.nit+f.fecha+f.estado).toLowerCase().includes(q)
-  ) : [...dianFacturas];
+  filteredFacturas=q?dianFacturas.filter(f=>(f.numero+f.tercero+f.nit+f.fecha+f.estado).toLowerCase().includes(q)):[...dianFacturas];
   actualizarTablaFacturas();
 }
-
-function moneda(v){ return '$'+Number(v||0).toLocaleString('es-CO',{minimumFractionDigits:0,maximumFractionDigits:0}); }
-
+function moneda(v){return '$'+Number(v||0).toLocaleString('es-CO',{minimumFractionDigits:0,maximumFractionDigits:0});}
 function actualizarTablaFacturas(){
   const vacioEl=document.getElementById('facturasVacioMsg');
   const contentEl=document.getElementById('facturasContent');
-  if(!filteredFacturas.length){ vacioEl.style.display='block'; contentEl.style.display='none'; return; }
-  vacioEl.style.display='none'; contentEl.style.display='block';
+  if(!filteredFacturas.length){vacioEl.style.display='block';contentEl.style.display='none';return;}
+  vacioEl.style.display='none';contentEl.style.display='block';
   const totalVal=filteredFacturas.reduce((s,f)=>s+(+f.total||0),0);
   const totalIva=filteredFacturas.reduce((s,f)=>s+(+f.iva||0),0);
-  document.getElementById('facturasStats').innerHTML=`
-    <div class="stat-card"><div class="stat-val">${filteredFacturas.length}</div><div class="stat-lbl">Facturas</div></div>
-    <div class="stat-card"><div class="stat-val" style="font-size:15px">${moneda(totalVal)}</div><div class="stat-lbl">Total</div></div>
-    <div class="stat-card"><div class="stat-val" style="font-size:15px">${moneda(totalIva)}</div><div class="stat-lbl">IVA</div></div>`;
-  document.getElementById('facturasTabla').innerHTML=`
-    <table>
-      <thead><tr><th>#</th><th>Fecha</th><th>Proveedor</th><th>Total</th><th>Estado</th><th>Fuente</th></tr></thead>
-      <tbody>${filteredFacturas.map(f=>`
-        <tr>
-          <td><b>${f.numero||'—'}</b></td>
-          <td>${f.fecha||'—'}</td>
-          <td><div style="max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${f.tercero||''}">${f.tercero||'—'}</div><div style="font-size:11px;color:var(--muted)">${f.nit||''}</div></td>
-          <td style="white-space:nowrap">${moneda(f.total)}</td>
-          <td><span class="chip">${f.estado||'—'}</span></td>
-          <td><span class="badge ${f.fuente==='SIIGO'?'badge-warn':'badge-info'}" style="font-size:10px">${f.fuente}</span></td>
-        </tr>`).join('')}
-      </tbody>
-    </table>`;
+  document.getElementById('facturasStats').innerHTML=`<div class="stat-card"><div class="stat-val">${filteredFacturas.length}</div><div class="stat-lbl">Facturas</div></div><div class="stat-card"><div class="stat-val" style="font-size:15px">${moneda(totalVal)}</div><div class="stat-lbl">Total</div></div><div class="stat-card"><div class="stat-val" style="font-size:15px">${moneda(totalIva)}</div><div class="stat-lbl">IVA</div></div>`;
+  document.getElementById('facturasTabla').innerHTML=`<table><thead><tr><th>#</th><th>Fecha</th><th>Proveedor</th><th>Total</th><th>Estado</th><th>Fuente</th></tr></thead><tbody>${filteredFacturas.map(f=>`<tr><td><b>${f.numero||'—'}</b></td><td>${f.fecha||'—'}</td><td><div style="max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${f.tercero||''}">${f.tercero||'—'}</div><div style="font-size:11px;color:var(--muted)">${f.nit||''}</div></td><td style="white-space:nowrap">${moneda(f.total)}</td><td><span class="chip">${f.estado||'—'}</span></td><td><span class="badge ${f.fuente==='SIIGO'?'badge-warn':'badge-info'}" style="font-size:10px">${f.fuente}</span></td></tr>`).join('')}</tbody></table>`;
 }
-
 function exportarCSV(){
-  if(!dianFacturas.length){ alert('No hay facturas'); return; }
+  if(!dianFacturas.length){alert('No hay facturas');return;}
   const hdr='Numero,Fecha,Tercero,NIT,Subtotal,IVA,Retencion,Total,Estado,Fuente\n';
   const rows=dianFacturas.map(f=>[f.numero,f.fecha,'"'+f.tercero+'"',f.nit,f.subtotal,f.iva,f.retencion,f.total,f.estado,f.fuente].join(',')).join('\n');
   const blob=new Blob([hdr+rows],{type:'text/csv;charset=utf-8;'});
-  const a=document.createElement('a');
-  a.href=URL.createObjectURL(blob);
-  a.download='contacol_facturas_'+new Date().toISOString().slice(0,10)+'.csv';
-  a.click();
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='contacol_facturas_'+new Date().toISOString().slice(0,10)+'.csv';a.click();
 }
-
 function exportarHTML(){
-  if(!dianFacturas.length){ alert('No hay facturas'); return; }
+  if(!dianFacturas.length){alert('No hay facturas');return;}
   const emp=empresa();
-  const html=`<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Facturas ${emp?.nombre||''}</title>
-<style>body{font-family:sans-serif;padding:20px}h1{color:#1565C0}table{border-collapse:collapse;width:100%}th{background:#1565C0;color:#fff;padding:8px}td{padding:7px;border-bottom:1px solid #ddd}tr:nth-child(even)td{background:#f5f5f5}</style></head>
-<body><h1>Facturas – ${emp?.nombre||'Contacol'}</h1><p>Exportado: ${new Date().toLocaleString('es-CO')}</p>
-<table><thead><tr><th>#</th><th>Fecha</th><th>Proveedor</th><th>NIT</th><th>Subtotal</th><th>IVA</th><th>Retención</th><th>Total</th><th>Estado</th><th>Fuente</th></tr></thead>
-<tbody>${dianFacturas.map(f=>`<tr><td>${f.numero}</td><td>${f.fecha}</td><td>${f.tercero}</td><td>${f.nit}</td><td>$${(+f.subtotal).toLocaleString('es-CO')}</td><td>$${(+f.iva).toLocaleString('es-CO')}</td><td>$${(+f.retencion).toLocaleString('es-CO')}</td><td>$${(+f.total).toLocaleString('es-CO')}</td><td>${f.estado}</td><td>${f.fuente}</td></tr>`).join('')}
-</tbody></table></body></html>`;
+  const html=`<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Facturas ${emp?.nombre||''}</title><style>body{font-family:sans-serif;padding:20px}h1{color:#1565C0}table{border-collapse:collapse;width:100%}th{background:#1565C0;color:#fff;padding:8px}td{padding:7px;border-bottom:1px solid #ddd}tr:nth-child(even)td{background:#f5f5f5}</style></head><body><h1>Facturas – ${emp?.nombre||'Contacol'}</h1><p>${new Date().toLocaleString('es-CO')}</p><table><thead><tr><th>#</th><th>Fecha</th><th>Proveedor</th><th>NIT</th><th>Subtotal</th><th>IVA</th><th>Retención</th><th>Total</th><th>Estado</th><th>Fuente</th></tr></thead><tbody>${dianFacturas.map(f=>`<tr><td>${f.numero}</td><td>${f.fecha}</td><td>${f.tercero}</td><td>${f.nit}</td><td>$${(+f.subtotal).toLocaleString('es-CO')}</td><td>$${(+f.iva).toLocaleString('es-CO')}</td><td>$${(+f.retencion).toLocaleString('es-CO')}</td><td>$${(+f.total).toLocaleString('es-CO')}</td><td>${f.estado}</td><td>${f.fuente}</td></tr>`).join('')}</tbody></table></body></html>`;
   const blob=new Blob([html],{type:'text/html;charset=utf-8;'});
-  const a=document.createElement('a');
-  a.href=URL.createObjectURL(blob);
-  a.download='contacol_facturas_'+new Date().toISOString().slice(0,10)+'.html';
-  a.click();
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='contacol_facturas_'+new Date().toISOString().slice(0,10)+'.html';a.click();
 }
-
-// ── INIT ─────────────────────────────────────────────────────
 (function init(){
-  renderEmpresas();
-  actualizarHeader();
-  renderFacturas();
+  renderEmpresas();actualizarHeader();renderFacturas();
+  if(isLocalhost())document.getElementById('proxyBadge').style.display='flex';
 })();
 </script>
 </body>
