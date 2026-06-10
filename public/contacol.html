@@ -178,6 +178,7 @@ tr:active td{background:#E3F2FD}
     <div class="app-subtitle">Facturación Electrónica Colombia</div>
   </div>
   <div class="empresa-chip" onclick="navTo('empresas')" id="headerEmpresa">Sin empresa</div>
+  <div id="proxyBadge" style="display:none;background:rgba(46,125,50,.35);color:#C8E6C9;border-radius:20px;padding:3px 9px;font-size:10px;font-weight:700;flex-shrink:0">🔌 PC</div>
 </div>
 
 <!-- Main scroll area -->
@@ -331,11 +332,16 @@ tr:active td{background:#E3F2FD}
       </ol>
     </div>
     <div class="card">
-      <div class="card-title">⚠️ Error CORS en PC</div>
-      <div style="font-size:14px;line-height:1.7">
-        Si abre la app desde un archivo local (<code>file://</code>), el navegador bloqueará las llamadas a la API. Solución:<br><br>
-        <code style="background:#f0f4f8;padding:6px 10px;border-radius:6px;display:block;word-break:break-all">python3 -m http.server 8080</code><br>
-        Luego abra <code>http://localhost:8080</code>
+      <div class="card-title">🖥️ Uso en PC (Windows)</div>
+      <div style="font-size:14px;line-height:1.9">
+        <b>Archivos necesarios (misma carpeta):</b><br>
+        📄 <code>contacol.html</code><br>
+        ⚡ <code>proxy_dian.ps1</code> → puerto 3101<br>
+        🟠 <code>proxy_siigo.ps1</code> → puerto 3100<br>
+        🚀 <code>iniciar_contacol.bat</code><br><br>
+        <b>Para iniciar:</b> doble clic en <code>iniciar_contacol.bat</code><br><br>
+        Descargue todos los archivos desde:<br>
+        <code style="background:#f0f4f8;padding:4px 8px;border-radius:6px;font-size:12px;display:block;word-break:break-all">su-sitio.netlify.app/contacol.html</code>
       </div>
     </div>
     <div class="card">
@@ -514,14 +520,26 @@ function actualizarHeader(){
 }
 
 // ── DIAN PANEL ───────────────────────────────────────────────
+function isLocalhost(){ return ['localhost','127.0.0.1'].includes(location.hostname); }
+
 function dianBaseUrl(){
-  const e=empresa(); if(!e) return 'https://catalogo-vpfe.dian.gov.co/api';
+  const e=empresa();
+  if(isLocalhost()){
+    // Use local proxy — routes /hab/api/... to hab, /api/... to prod
+    return e?.ambiente==='hab'
+      ? 'http://localhost:3101/hab/api'
+      : 'http://localhost:3101/api';
+  }
   const custom=document.getElementById('dianUrl')?.value.trim().replace(/\/$/,'');
   if(custom) return custom;
-  if(e.dianApiUrl) return e.dianApiUrl.replace(/\/$/,'');
-  return e.ambiente==='hab'
+  if(e?.dianApiUrl) return e.dianApiUrl.replace(/\/$/,'');
+  return e?.ambiente==='hab'
     ? 'https://catalogo-vpfe-hab.dian.gov.co/api'
     : 'https://catalogo-vpfe.dian.gov.co/api';
+}
+
+function siigoApiBase(){
+  return isLocalhost() ? 'http://localhost:3100' : 'https://api.siigo.com';
 }
 
 function getDianToken(){
@@ -549,7 +567,6 @@ function renderDIANPanel(){
   document.getElementById('dianUrl').value=e.dianApiUrl||'';
   document.getElementById('dianTokenField').value=e.dianToken||'';
   document.getElementById('dianCorsAlert').style.display='none';
-  // Default dates
   if(!document.getElementById('dianFechaDesde').value){
     const hoy=new Date(), hace30=new Date(hoy-30*864e5);
     document.getElementById('dianFechaHasta').value=hoy.toISOString().slice(0,10);
@@ -647,7 +664,6 @@ async function dianDescargar(){
     resEl.innerHTML=`<div class="alert alert-warn">⚠️ No se encontraron facturas en el rango indicado.</div>`;
     return;
   }
-  // Normalize
   const norm=facturas.map(f=>({
     numero: f.numero||f.number||f.NumeroFactura||f.invoice_number||'',
     fecha: (f.fecha||f.date||f.fechaEmision||f.issue_date||'').slice(0,10),
@@ -660,7 +676,6 @@ async function dianDescargar(){
     estado: f.estado||f.status||f.estado_documento||'',
     fuente:'DIAN'
   }));
-  // Merge with existing (avoid duplicates by numero)
   const nums=new Set(norm.map(f=>f.numero).filter(Boolean));
   const prevs=dianFacturas.filter(f=>f.fuente==='DIAN'&&!nums.has(f.numero));
   dianFacturas=[...norm,...prevs];
@@ -701,7 +716,7 @@ async function siigoConectar(){
   statusEl.className='badge badge-info'; statusEl.textContent='Conectando…';
   resEl.innerHTML='';
   try{
-    const r=await fetch('https://api.siigo.com/auth',{
+    const r=await fetch(siigoApiBase()+'/auth',{
       method:'POST',
       headers:{'Content-Type':'application/json','Partner-Id':'contacol-mobile'},
       body:JSON.stringify({username:user,access_key:key}),
@@ -728,7 +743,7 @@ async function siigoCargarCuentas(){
   const resEl=document.getElementById('siigoDataResult');
   resEl.innerHTML='<span>Cargando plan de cuentas…</span>';
   try{
-    const r=await fetch('https://api.siigo.com/v1/accounts',{
+    const r=await fetch(siigoApiBase()+'/v1/accounts',{
       headers:{Authorization:'Bearer '+siigoToken,'Partner-Id':'contacol-mobile'},
       signal:AbortSignal.timeout(15000)
     });
@@ -746,7 +761,7 @@ async function siigoCargarFacturas(){
   const resEl=document.getElementById('siigoDataResult');
   resEl.innerHTML='<span>Cargando facturas SIIGO…</span>';
   try{
-    const r=await fetch('https://api.siigo.com/v1/invoices?page=1&page_size=100',{
+    const r=await fetch(siigoApiBase()+'/v1/invoices?page=1&page_size=100',{
       headers:{Authorization:'Bearer '+siigoToken,'Partner-Id':'contacol-mobile'},
       signal:AbortSignal.timeout(15000)
     });
@@ -852,6 +867,7 @@ function exportarHTML(){
   renderEmpresas();
   actualizarHeader();
   renderFacturas();
+  if(isLocalhost()) document.getElementById('proxyBadge').style.display='flex';
 })();
 </script>
 </body>
