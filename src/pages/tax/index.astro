@@ -1,0 +1,26 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TaxDashboard from '../../components/tax/TaxDashboard.tsx';
+
+export const prerender = false;
+---
+
+<Layout title="Tracker Tributario">
+    <div class="py-10 space-y-2">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+            <h1 class="text-3xl font-bold sm:text-4xl">Tracker Tributario</h1>
+            <a
+                href="/tax/companies"
+                class="btn"
+                style="--btn-py: 0.5rem; --btn-px: 1rem; font-size: 0.875rem;"
+            >
+                Gestionar Empresas
+            </a>
+        </div>
+        <p class="text-gray-400 text-sm">
+            Monitoreo de declaraciones tributarias · actualización automática cada 6 horas
+        </p>
+    </div>
+
+    <TaxDashboard client:load />
+</Layout>
