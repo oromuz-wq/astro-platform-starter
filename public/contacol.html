@@ -253,6 +253,31 @@ tr:active td{background:#E3F2FD}
         <div id="dianDescResult"></div>
       </div>
 
+      <div class="card">
+        <div class="card-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Importar desde Portal DIAN
+        </div>
+        <div class="alert alert-info" style="margin-bottom:10px;font-size:12px">
+          <div><b>¿Tiene solo el token del portal DIAN?</b> El PIN que llega al correo sirve para entrar al portal web, no para la API. Descargue manualmente sus facturas desde el portal y cárguelas aquí.<br><br>
+          <b>Pasos:</b><br>
+          1. Ingrese a <code>catalogo-vpfe.dian.gov.co</code> con su PIN<br>
+          2. Vaya a <b>Documentos Recibidos</b><br>
+          3. Filtre por fecha y descargue como <b>CSV o Excel</b><br>
+          4. Seleccione ese archivo aquí abajo</div>
+        </div>
+        <div class="field">
+          <label>Archivo CSV / Excel del portal DIAN</label>
+          <input type="file" id="portalFileInput" accept=".csv,.xlsx,.xls,.txt" style="padding:10px;font-size:14px">
+          <div class="hint">Acepta CSV separado por comas, punto y coma, tabulaciones o pipes ( | )</div>
+        </div>
+        <button class="btn btn-outline" onclick="importarPortalDIAN()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Importar Facturas del Portal
+        </button>
+        <div id="portalImportResult"></div>
+      </div>
+
       <div class="alert alert-warn" id="dianCorsAlert" style="display:none">
         <div>
           <b>⚠️ Error CORS</b><br>
@@ -317,10 +342,22 @@ tr:active td{background:#E3F2FD}
   <!-- ─── TAB: AYUDA ─── -->
   <div class="section" id="sec-ayuda">
     <div class="card">
-      <div class="card-title">🚀 Inicio Rápido</div>
+      <div class="card-title">🚀 Camino A — Solo tengo el PIN del portal DIAN</div>
+      <div class="alert alert-warn" style="margin-bottom:10px;font-size:12px"><b>El PIN que llega al correo no es un token de API.</b> Solo sirve para entrar al portal web manualmente.</div>
+      <ol style="padding-left:18px;font-size:14px;line-height:2">
+        <li>Entre a <b>catalogo-vpfe.dian.gov.co</b> con su PIN</li>
+        <li>Vaya a <b>Documentos Recibidos</b></li>
+        <li>Filtre por fecha y descargue como <b>CSV o Excel</b></li>
+        <li>En Contacol vaya a <b>DIAN</b> → <b>Importar desde Portal DIAN</b></li>
+        <li>Seleccione el archivo descargado</li>
+        <li>Vea resultados en <b>Facturas</b></li>
+      </ol>
+    </div>
+    <div class="card">
+      <div class="card-title">🚀 Camino B — Tengo operador tecnológico (API)</div>
       <ol style="padding-left:18px;font-size:14px;line-height:2">
         <li>Vaya a <b>Empresas</b> → Agregar Empresa</li>
-        <li>Complete nombre, NIT y token DIAN</li>
+        <li>Seleccione su operador y pegue el Bearer token</li>
         <li>Toque la empresa para seleccionarla</li>
         <li>Vaya a <b>DIAN</b> → Verificar Conexión</li>
         <li>Defina rango de fechas → Descargar Facturas</li>
@@ -328,19 +365,17 @@ tr:active td{background:#E3F2FD}
       </ol>
     </div>
     <div class="card">
-      <div class="card-title">🔑 Cómo obtener el Token del operador</div>
+      <div class="card-title">🔑 Obtener token de operador tecnológico</div>
       <div style="font-size:13px;line-height:1.8">
-        <b>El portal DIAN no tiene API REST.</b> Para consultar facturas automáticamente
-        necesita un <b>operador tecnológico autorizado</b> que le exponga una API con Bearer token.<br><br>
         <b>Operadores populares en Colombia:</b><br>
-        • <b>Factus</b> → developers.factus.com.co<br>
+        • <b>Factus</b> → developers.factus.com.co · <i>tiene plan gratuito</i><br>
         • <b>Alegra</b> → e-provider-docs.alegra.com<br>
         • <b>Alanube</b> → developer.alanube.co<br>
         • <b>Cifrato / AX1</b> → solicite la documentación API a su proveedor<br><br>
         <b>Pasos:</b>
         <ol style="padding-left:18px;margin-top:6px">
-          <li>Contrate su operador tecnológico</li>
-          <li>En su panel de cliente obtenga el <b>Bearer token</b></li>
+          <li>Regístrese o ingrese al panel de su operador</li>
+          <li>Busque <b>API Keys</b> o <b>Bearer token</b> en su cuenta</li>
           <li>En Empresas → seleccione su operador y pegue el token</li>
           <li>Vaya a DIAN → Verificar Conexión</li>
         </ol>
@@ -369,7 +404,7 @@ tr:active td{background:#E3F2FD}
     </div>
     <div class="card">
       <div class="card-title">ℹ️ Versión</div>
-      <div style="font-size:13px;color:var(--muted)">Contacol Mobile v1.0 · Colombia · 2024<br>Integración DIAN FE + SIIGO API</div>
+      <div style="font-size:13px;color:var(--muted)">Contacol Mobile v2.1 · Colombia · 2025<br>Integración DIAN FE (portal + operadores) + SIIGO API</div>
     </div>
   </div>
 
@@ -897,6 +932,79 @@ function actualizarTablaFacturas(){
         </tr>`).join('')}
       </tbody>
     </table>`;
+}
+
+function importarPortalDIAN(){
+  const fileInput=document.getElementById('portalFileInput');
+  const resEl=document.getElementById('portalImportResult');
+  if(!fileInput.files.length){ alert('Seleccione un archivo CSV o Excel'); return; }
+  const file=fileInput.files[0];
+  const reader=new FileReader();
+  reader.onload=function(e){
+    try{
+      const text=e.target.result;
+      const lines=text.split(/\r?\n/).filter(l=>l.trim());
+      if(lines.length<2){ resEl.innerHTML='<div class="alert alert-err">Archivo vacío o sin datos</div>'; return; }
+      const sep=lines[0].includes(';')?';':lines[0].includes('\t')?'\t':lines[0].includes('|')?'|':',';
+      const parseRow=row=>{
+        const cols=[]; let cur='', inQ=false;
+        for(let c of row){
+          if(c==='"'){ inQ=!inQ; }
+          else if(c===sep&&!inQ){ cols.push(cur.trim()); cur=''; }
+          else{ cur+=c; }
+        }
+        cols.push(cur.trim()); return cols;
+      };
+      const hdrs=parseRow(lines[0]).map(h=>h.toLowerCase().replace(/['"]/g,'').normalize('NFD').replace(/[̀-ͯ]/g,''));
+      const fi=n=>hdrs.findIndex(h=>n.some(k=>h.includes(k)));
+      const cols={
+        numero: fi(['numero','factura','consecutive','cufe','number','cufd']),
+        fecha:  fi(['fecha','date','emision']),
+        tercero:fi(['nombre','emisor','proveedor','razon','supplier','seller','company']),
+        nit:    fi(['nit','identificacion','tax','rut','cedula']),
+        subtotal:fi(['subtotal','base imponible','valor base','sub_total','baseimponible']),
+        iva:    fi(['iva','impuesto','tax amount','tax_amount']),
+        total:  fi(['total','valor total','grand','monto','importe']),
+        estado: fi(['estado','status','legalstatus','estado documento']),
+      };
+      const parseMoney=s=>{
+        if(!s) return 0;
+        s=String(s).replace(/['"]/g,'').trim();
+        if(/\d\.\d{3}[,\d]/.test(s)) s=s.replace(/\./g,'').replace(',','.');
+        else s=s.replace(/,/g,'');
+        return parseFloat(s)||0;
+      };
+      const get=(row,idx)=>idx>=0?(row[idx]||'').replace(/^["']|["']$/g,'').trim():'';
+      const facturas=[];
+      for(let i=1;i<lines.length;i++){
+        const row=parseRow(lines[i]);
+        if(row.length<2) continue;
+        facturas.push({
+          numero:  get(row,cols.numero),
+          fecha:   get(row,cols.fecha).slice(0,10),
+          tercero: get(row,cols.tercero),
+          nit:     get(row,cols.nit),
+          subtotal:parseMoney(get(row,cols.subtotal)),
+          iva:     parseMoney(get(row,cols.iva)),
+          retencion:0,
+          total:   parseMoney(get(row,cols.total)),
+          estado:  get(row,cols.estado)||'Importado',
+          fuente:  'Portal DIAN'
+        });
+      }
+      const valid=facturas.filter(f=>f.numero||f.total>0);
+      if(!valid.length){ resEl.innerHTML='<div class="alert alert-err">No se reconocieron facturas en el archivo. Asegúrese de que sea un CSV del portal DIAN.</div>'; return; }
+      const nums=new Set(valid.map(f=>f.numero).filter(Boolean));
+      const prevs=dianFacturas.filter(f=>!nums.has(f.numero));
+      dianFacturas=[...valid,...prevs];
+      saveDianFacts();
+      resEl.innerHTML=`<div class="alert alert-ok">✅ ${valid.length} facturas importadas desde el portal DIAN. Ver en la pestaña <b>Facturas</b>.</div>`;
+      renderFacturas();
+    } catch(err){
+      resEl.innerHTML=`<div class="alert alert-err">❌ Error al leer el archivo: ${err.message}</div>`;
+    }
+  };
+  reader.readAsText(file,'UTF-8');
 }
 
 function exportarCSV(){
